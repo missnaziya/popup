@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+
+    <style>
+        #container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15%;
+        
+        }
+        #form{
+            padding: 25px;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        .popup{
+            border: 2px solid black;
+            position: absolute;
+            background: white;
+            height: 200px;
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%,-50%) scale(0.1);
+            visibility: hidden;    
+            transform: 10s ;
+            transition-duration: 10min;
+            /* transition: transform 10s , top 0.4s; */
+            /* transition: top 0.4s; */
+        }
+        #ok{
+            width: 100%;
+            padding: 5px;
+            border-radius: 15px;
+            background: rgb(55, 185, 7);
+            box-shadow: 0 2px 5px rgb(113, 106, 106);
+            font-size: large;
+        }
+        .open-popup{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1);
+            
+          }
+          #btn{
+            
+            width: 70%;
+            padding: 5px;
+            border-radius: 15px;
+            background: rgb(55, 185, 7);
+            box-shadow: 0 2px 5px rgb(113, 106, 106);
+            font-size: large;
+          }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div id="container">
+
+     <form id="form">
+
+         Email &nbsp; &nbsp;<input type="text" > <br> <br>
+         Phone No. <input type="number"> <br> <br>
+         <button type="button" onclick="openpopup()" id="btn">submit</button>
+         
+        </form>
+    
+    <!-- <p id="note">Thanks for the information</p>d -->
+
+
+    <div class="popup" id="popup"  >
+        <h1>Thank You!</h1>
+        <p>Your details has been successfully submitted. Thanks!</p>
+        <button id="ok" onclick="closepopup()">Ok</button>
+        
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+
+<script>
+   
+// let note = document.getElementById('note');
+
+
+//    let popup = () => {
+//     alert(`${note}`)
+//    }
+
+let popup = document.getElementById('popup');
+
+function openpopup(){
+    popup.classList.add('open-popup');
+ 
+
+}
+
+function closepopup(){
+    popup.classList.remove('open-popup');
+
+}
+
+
+let btnclear = document.querySelector('button');
+let inputs = document.querySelectorAll('input');
+
+btnclear.addEventListener('click', () =>{
+    inputs.forEach(input => input.value = '');
+});
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
